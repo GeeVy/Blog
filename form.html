@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0 auto;
+        border: 50%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.72);
+    }
+    form{
+        margin: 0 auto;
+        background-color: rgba(0, 255, 255, 0.193);
+        
+    }
+    fieldset{
+        padding: 40px;
+    }
+    input{
+        height: 30px;
+        width: 250px;
+    }
+    button{
+        height: 30px;
+        width: 200px;
+    }
+    </style>
+    <body>
+    <form action="/filledForm" method="post">
+        <fieldset>
+            <legend>Help Desk</legend>
+            <lu>
+                <li>
+                    <label> Name: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="tabbed" type="text" id="name" name="name" placeholder="Enter name..."><br>
+                </li>
+                <br>
+                <li>
+                    <label> E-mail: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="email" id="email" name="user_email" placeholder="email@email.com"><br>
+                </li>
+                <br>
+                <li>
+                    <label>Blog tittle:</label>&nbsp;
+                    <input type="text" id="title" name="tittle" placeholder="Enter blog tittle..."><br>
+                    <br>
+                </li>
+                <br>
+                <li>
+                    <label> Compose Blog </label><br>
+                    <br>
+                    <textarea rows="15" cols="70" id="message" name="query_message"></textarea>
+                </li>
+            </lu>
+            <div>
+                <label for="cheese"> Do you like cheese? </label><input type="checkbox" name="cheese" id="cheese"><br>
+            </div>
+            <br>
+            <div>
+                <button type="submit" id="msg_btn"> SEND MESSAGE </button>
+            </div>
+        </fieldset>
+
+    </form>     
+    </body>
+</html>
