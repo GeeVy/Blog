@@ -66,6 +66,14 @@
         justify-content:space-around;
         align-items: center;
     }
+    input, button{
+        padding: 7px;
+        height: 40px;
+    }
+    fieldset{
+        margin-bottom: 2opx;
+        background-color: rgba(0, 255, 255, 0.111);
+    }
 </style>
 <body>
     <div>
@@ -74,17 +82,104 @@
         <br>
         <p>_______________________________________________________________________________________________________</p>
         <br>
+        <br>
         <h2> Blog 1 </h2>
         <p>Boy Scout Lane is in the Town of Linwood, Portage County, Wisconsin. It is located west of the Wisconsin River Golf Club, on West River Drive (West), and is situated between Cemetery Road and Little Chicago Road. It is unpaved and about 2,500 feet (760 m) long.[2] The road was named Boy Scout Lane because the land that it is located near was once owned by the Boy Scouts of America, who planned to use the land to build a Scout camp.[3] Although the camp was never constructed and the land remains woodland, the name was still used.</p>
         <p>According to a local urban legend, the road is named for a troop of Boy Scouts who were killed while on a camping trip in the 1950s or 1960s. In some variations the murderer is the troop's Scoutmaster. In others it is their bus driver.[4] In other versions of the legend, a small group of Scouts leave their camp during the night and accidentally drop their lantern, resulting in a forest fire that kills the entire troop.[4]</p>
         <p>Other variations of the story exist including one in which the Scouts are killed after their bus crashes or accidentally catches fire. There is also a version in which the Scouts vanish without explanation and are never found. In some versions of the legend, two Boy Scouts escaped the fate of the rest of the troop and tried to find help, only to become lost in the woods where they die of starvation and/or exposure. In most variations of the legend it is said that the dead Scouts haunt the forest where they died and can be heard hiking through the undergrowth, or their lights can be seen at night as they seek help or their fellow Scouts.[4]</p>
         <p>Stories circulated in "haunted travel guides"[4] include visitors reporting a strong sense of foreboding or "being watched", the sound of footsteps or breaking branches coming from multiple directions, red or white lights sometimes described as resembling swinging lanterns or flashlight beams, ghostly buses or figures, and "childlike hand prints" on cars stopped in or driven through the area.</p>
+        <br>
+        <br>
+        <div id="displatArea">
 
+        </div>
+        <br>
+        <br>
+        <a href="/next?next=page2">page 2...</a>
     </div>
     <div>
-        <h3> Add a BLOG? <a href='/form'> Add Blog </a></h3><br>
-        
+        <h1>Add Blog</h1>
+    <fieldset id="fielset">
+        <legend>#Upload blog:</legend>
+        <li>
+            <label> Name: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="tabbed" type="text" id="name" name="name" placeholder="Enter name..."><br>
+        </li>
+        <br>
+        <li>
+            <label> E-mail: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="email" id="email" name="user_email" placeholder="email@email.com"><br>
+        </li>
+        <br>
+        <li>
+            <label>Blog tittle:</label>&nbsp;
+            <input id="inputKey" type="text" placeholder="Enter tittle...">
+            <br>
+        </li>
+        <br>
+        <textarea rows="15" cols="70" id="inputValue" type="text" placeholder="Your blog..."></textarea>
+        <br>
+        <button type="button" id="btnInsert">Preview blog</button>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Preview</legend>
+        <div id="lsOutput"></div>
+        <button id="uplaodBtn" type="button">Upload Blog</button>
+    </fieldset>
     </div>
     
 </body>
+<script>
+    const InputKey = document.getElementById("inputKey");
+    const InputValue = document.getElementById("inputValue");
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+
+    const Insertbtn = document.getElementById("btnInsert");
+    const UplaodBtn = document.getElementById("uploadBtn");
+
+    const finalDisplay = document.getElementById("displatArea")
+    const preview = document.getElementById("lsOutput");
+   
+
+    Insertbtn.onclick = function(){
+        const key = InputKey.value;
+        const value = InputValue.value;
+
+        console.log(key)
+        console.log(value)
+
+        if(key && value){
+            localStorage.setItem(key, value);
+            location.reload();
+        }
+
+        for(let i=0; i<localStorage.length; i++){
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key);
+            console.log(i)
+            preview.innerHTML += `<h2><b>${key}</b></h2><br   /> ${value}<br   /><br><br>`;
+            console.log(preview)
+
+        }
+    }
+    // UplaodBtn.onclick = function(){
+    //     const name = document.getElementById("name");
+    //     const email = document.getElementById("email");
+    //     const tittle = document.getElementById("InputKey");
+    //     const blog = document.getElementById("InputValue");
+    //     let UserBlogs = []
+    //     let UserObj = {
+    //         name: name.value,
+    //         email: email.value,
+    //         blogTittle: tittle.value,
+    //         blog: blog.value
+    //     }
+    //     UserBlogs.push(UserObj)
+    //     alert(UserBlogs)
+
+    // }
+</script>
 </html>
