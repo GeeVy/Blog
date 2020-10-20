@@ -24,7 +24,6 @@ blog.post('/filledForm', urlencodedParser, function(req, res){
     res.send(`<h1>${req.body.tittle}</h1>`+
             `<p>uploader: <b>${req.body.name}</b><br>${req.body.user_email}</p>`+
             `<p>${req.body.user_blog}</p>`
-
     );
 })
 
